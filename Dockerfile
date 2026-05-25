@@ -14,4 +14,4 @@ COPY . /code/
 
 EXPOSE 7860
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:7860"]
+CMD CMD ["gunicorn", "crimeprediction.wsgi:application", "--bind", "0.0.0.0:7860"]
