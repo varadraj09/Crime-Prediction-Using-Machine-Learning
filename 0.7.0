@@ -1,0 +1,50 @@
+Collecting torchmetrics
+  Using cached torchmetrics-1.8.2-py3-none-any.whl.metadata (22 kB)
+Collecting numpy>1.20.0 (from torchmetrics)
+  Using cached numpy-2.2.6-cp310-cp310-win_amd64.whl.metadata (60 kB)
+Collecting packaging>17.1 (from torchmetrics)
+  Using cached packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting torch>=2.0.0 (from torchmetrics)
+  Using cached torch-2.9.0-cp310-cp310-win_amd64.whl.metadata (30 kB)
+Collecting lightning-utilities>=0.8.0 (from torchmetrics)
+  Using cached lightning_utilities-0.15.2-py3-none-any.whl.metadata (5.7 kB)
+Requirement already satisfied: setuptools in c:\users\dell\downloads\python old\crime prediction using machine learning\venv\lib\site-packages (from lightning-utilities>=0.8.0->torchmetrics) (80.9.0)
+Requirement already satisfied: typing_extensions in c:\users\dell\downloads\python old\crime prediction using machine learning\venv\lib\site-packages (from lightning-utilities>=0.8.0->torchmetrics) (4.9.0)
+Collecting filelock (from torch>=2.0.0->torchmetrics)
+  Using cached filelock-3.20.0-py3-none-any.whl.metadata (2.1 kB)
+Collecting typing_extensions (from lightning-utilities>=0.8.0->torchmetrics)
+  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting sympy>=1.13.3 (from torch>=2.0.0->torchmetrics)
+  Using cached sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx>=2.5.1 (from torch>=2.0.0->torchmetrics)
+  Using cached networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+Collecting jinja2 (from torch>=2.0.0->torchmetrics)
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=0.8.5 (from torch>=2.0.0->torchmetrics)
+  Using cached fsspec-2025.10.0-py3-none-any.whl.metadata (10 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch>=2.0.0->torchmetrics)
+  Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch>=2.0.0->torchmetrics)
+  Using cached markupsafe-3.0.3-cp310-cp310-win_amd64.whl.metadata (2.8 kB)
+Using cached torchmetrics-1.8.2-py3-none-any.whl (983 kB)
+Using cached lightning_utilities-0.15.2-py3-none-any.whl (29 kB)
+Using cached numpy-2.2.6-cp310-cp310-win_amd64.whl (12.9 MB)
+Using cached packaging-25.0-py3-none-any.whl (66 kB)
+Downloading torch-2.9.0-cp310-cp310-win_amd64.whl (109.3 MB)
+   ---------------------------------------- 109.3/109.3 MB 2.7 MB/s  0:00:39
+Downloading fsspec-2025.10.0-py3-none-any.whl (200 kB)
+Using cached networkx-3.4.2-py3-none-any.whl (1.7 MB)
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ---------------------------------------- 6.3/6.3 MB 3.3 MB/s  0:00:01
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ---------------------------------------- 536.2/536.2 kB 3.5 MB/s  0:00:00
+Using cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading filelock-3.20.0-py3-none-any.whl (16 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Using cached markupsafe-3.0.3-cp310-cp310-win_amd64.whl (15 kB)
+Installing collected packages: mpmath, typing_extensions, sympy, packaging, numpy, networkx, MarkupSafe, fsspec, filelock, lightning-utilities, jinja2, torch, torchmetrics
+  Attempting uninstall: typing_extensions
+    Found existing installation: typing_extensions 4.9.0
+    Uninstalling typing_extensions-4.9.0:
+      Successfully uninstalled typing_extensions-4.9.0
+

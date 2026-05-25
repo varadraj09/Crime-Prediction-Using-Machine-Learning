@@ -1,0 +1,292 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<style>
+
+/* Google Font Import */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body{
+    background:linear-gradient(135deg,#020617,#0f172a,#1d4ed8);
+    min-height:100vh;
+}
+
+/* Navbar */
+
+.w3-top .w3-bar{
+
+    background:linear-gradient(135deg,#111827,#1e3a8a) !important;
+    padding:18px 35px !important;
+    box-shadow:0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* Logo */
+
+.w3-bar a[href="#home"]{
+
+    font-family:'Orbitron',sans-serif !important;
+    font-size:32px !important;
+    font-weight:700 !important;
+    color:white !important;
+    letter-spacing:3px !important;
+    text-shadow:0 0 12px rgba(59,130,246,0.8);
+}
+
+/* Navbar Buttons */
+
+.w3-bar-item{
+
+    color:white !important;
+    font-size:17px !important;
+    font-weight:600 !important;
+    letter-spacing:1px !important;
+    font-family:'Poppins',sans-serif !important;
+}
+
+.w3-bar-item:hover{
+
+    background:#2563eb !important;
+    border-radius:10px;
+}
+
+/* Hide Admin + Registration */
+
+.w3-bar a[href*="AdminLogin"]{
+
+    display:none !important;
+}
+
+.w3-bar a[href*="UserRegister"]{
+
+    display:none !important;
+}
+
+/* Main Wrapper */
+
+.register-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:70px 20px;
+}
+
+/* Card */
+
+.register-card{
+    width:100%;
+    max-width:800px;
+    background:rgba(15,23,42,0.92);
+    border-radius:30px;
+    padding:50px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.5);
+    backdrop-filter:blur(12px);
+    animation:fadeIn 0.8s ease;
+}
+
+/* Heading */
+
+.register-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.register-title h1{
+    font-size:55px;
+    font-weight:700;
+    color:white;
+    margin-bottom:10px;
+    font-family:'Orbitron',sans-serif;
+}
+
+.register-title p{
+    color:#cbd5e1;
+    font-size:18px;
+    font-family:'Poppins',sans-serif;
+}
+
+/* Already Account */
+
+.login-text{
+    text-align:center;
+    margin-top:15px;
+    color:#cbd5e1;
+    font-size:17px;
+    font-family:'Poppins',sans-serif;
+}
+
+.login-text a{
+    color:#38bdf8;
+    text-decoration:none;
+    font-weight:700;
+}
+
+/* Form */
+
+form p{
+    margin-bottom:22px;
+}
+
+form label{
+    color:#e2e8f0;
+    font-size:17px;
+    font-weight:600;
+    margin-bottom:8px;
+    display:block;
+    font-family:'Poppins',sans-serif;
+}
+
+/* Inputs */
+
+form input,
+form textarea,
+form select{
+
+    width:100%;
+    height:58px;
+    border:none;
+    border-radius:15px;
+    padding:14px 18px;
+    background:#334155;
+    color:white;
+    font-size:16px;
+    transition:0.3s;
+    font-family:'Poppins',sans-serif;
+}
+
+form textarea{
+    height:120px;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus{
+
+    outline:none;
+    background:#475569;
+    box-shadow:0 0 0 3px rgba(59,130,246,0.3);
+}
+
+/* Button */
+
+.btn-register{
+    width:100%;
+    height:58px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:white;
+    font-size:20px;
+    font-weight:700;
+    margin-top:15px;
+    transition:0.3s;
+    font-family:'Poppins',sans-serif;
+}
+
+.btn-register:hover{
+    transform:translateY(-3px);
+}
+
+/* Messages */
+
+.msg-box{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.msg-box font{
+    color:#4ade80;
+    font-size:18px;
+    font-weight:700;
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+</style>
+
+<div class="register-wrapper">
+
+    <div class="register-card">
+
+        <!-- Title -->
+
+        <div class="register-title">
+
+            <h1>Create Account</h1>
+
+            <p>
+                Crime Prediction AI System Registration
+            </p>
+
+        </div>
+
+        <!-- Success Message -->
+
+        <div class="msg-box">
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <font>
+
+                        {{ message }}
+
+                    </font>
+
+                {% endfor %}
+
+            {% endif %}
+
+        </div>
+
+        <!-- Form -->
+
+        <form action="{%url 'UserRegisterActions'%}" method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn-register">
+
+                Register Now
+
+            </button>
+
+        </form>
+
+        <!-- Already Account -->
+
+        <div class="login-text">
+
+            Already have an account?
+
+            <a href="{% url 'UserLogin' %}">
+
+                Login
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

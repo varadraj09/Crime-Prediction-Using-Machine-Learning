@@ -1,0 +1,120 @@
+{% extends 'users/userbase.html' %}
+
+{% block contents %}
+
+<div style="
+display:flex;
+justify-content:flex-end;
+margin-bottom:15px;
+">
+
+<a href="/UserHome/"
+class="back-custom">
+
+⬅ Dashboard
+
+</a>
+
+</div>
+
+<div class="container mt-5">
+
+<div class="card p-5 shadow">
+
+<h2 class="text-center">
+
+📊 Crime Prediction
+
+</h2>
+
+<br>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input
+type="text"
+name="city"
+class="form-control"
+placeholder="Enter City Name"
+required>
+
+<br>
+
+<div style="text-align:center;">
+
+<button
+class="btn btn-primary">
+
+Analyze
+
+</button>
+
+</div>
+
+</form>
+
+{% if safety %}
+
+<hr>
+
+<div class="card p-4 mt-4">
+
+<h3>
+
+📍 City :
+
+{{city}}
+
+</h3>
+
+<br>
+
+<h4>
+
+{{safety}}
+
+</h4>
+
+</div>
+
+<br>
+
+<div class="card p-4">
+
+<h3>
+
+🚨 Crime Percentage Distribution
+
+</h3>
+
+<br>
+
+{% for crime,percent in crime_percent %}
+
+<div class="alert alert-dark">
+
+<b>
+
+{{crime}}
+
+</b>
+
+-
+
+{{percent}}%
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endblock %}

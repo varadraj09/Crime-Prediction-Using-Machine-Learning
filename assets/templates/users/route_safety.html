@@ -1,0 +1,119 @@
+{% extends 'users/userbase.html' %}
+
+{% block contents %}
+
+<div style="
+display:flex;
+justify-content:flex-end;
+margin-bottom:15px;
+">
+
+<a href="/UserHome/"
+class="back-custom">
+
+⬅ Dashboard
+
+</a>
+
+</div>
+
+<div class="container mt-5">
+
+<div class="card p-5">
+
+<h2>🛣 Route Safety Analysis</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input
+type="text"
+name="source"
+class="form-control mt-3"
+placeholder="Enter Source"
+required>
+
+<input
+type="text"
+name="destination"
+class="form-control mt-3"
+placeholder="Enter Destination"
+required>
+
+<button
+class="btn btn-primary mt-4">
+
+Analyze Route
+
+</button>
+
+</form>
+
+{% if risk %}
+
+<hr>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card bg-danger text-white p-3">
+
+<h4>Risk Score</h4>
+
+<h2>{{risk}}%</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card bg-success text-white p-3">
+
+<h4>Safe Time</h4>
+
+<h2>{{safe}}</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card bg-warning p-3">
+
+<h4>Avoid</h4>
+
+<h2>{{danger}}</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="alert alert-info">
+
+{{message}}
+
+</div>
+
+<div class="card p-3">
+
+<h4>Distance</h4>
+
+<h2>{{distance}} KM</h2>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends 'users/userbase.html' %}
+
+{% block contents %}
+
+<div style="
+display:flex;
+justify-content:flex-end;
+margin-bottom:15px;
+">
+
+<a href="/UserHome/"
+class="back-custom">
+
+⬅ Dashboard
+
+</a>
+
+</div>
+
+<style>
+
+body{
+background:linear-gradient(135deg,#020617,#0f172a);
+min-height:100vh;
+}
+
+.addcrime-wrapper{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:50px;
+}
+
+.addcrime-card{
+width:100%;
+max-width:700px;
+background:#111827;
+padding:40px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.form-control{
+
+background:#1e293b;
+border:none;
+color:white;
+margin-top:10px;
+padding:14px;
+border-radius:12px;
+}
+
+.submit-btn{
+
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:linear-gradient(135deg,#2563eb,#06b6d4);
+color:white;
+font-size:18px;
+margin-top:25px;
+
+}
+
+</style>
+
+
+<div class="addcrime-wrapper">
+
+<div class="addcrime-card">
+
+<h1 class="text-center text-info">
+
+➕ Add Crime Report
+
+</h1>
+
+{% if msg %}
+
+<div class="alert alert-success">
+
+{{msg}}
+
+</div>
+
+{% endif %}
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input
+name="city"
+class="form-control"
+placeholder="Enter City"
+required>
+
+<input
+name="crime_type"
+class="form-control"
+placeholder="Crime Type"
+required>
+
+<input
+name="location"
+class="form-control"
+placeholder="Location"
+required>
+
+<input
+type="date"
+name="date"
+class="form-control"
+required>
+
+<textarea
+name="description"
+class="form-control"
+placeholder="Crime Description">
+</textarea>
+
+<button class="submit-btn">
+
+Save Crime Report
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

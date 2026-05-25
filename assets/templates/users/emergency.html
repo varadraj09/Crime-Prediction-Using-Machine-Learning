@@ -1,0 +1,104 @@
+{% extends 'users/userbase.html' %}
+
+{% block contents %}
+
+<div style="
+display:flex;
+justify-content:flex-end;
+margin-bottom:15px;
+">
+
+<a href="/UserHome/"
+class="back-custom">
+
+⬅ Dashboard
+
+</a>
+
+</div>
+
+<div class="container mt-5">
+
+<h1 class="text-center text-white">
+
+🚨 Emergency Help Center
+
+</h1>
+
+<br>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card bg-danger text-white p-4">
+
+<h4>Police</h4>
+
+<h2>100</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card bg-warning p-4">
+
+<h4>Ambulance</h4>
+
+<h2>108</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card bg-primary text-white p-4">
+
+<h4>Women Helpline</h4>
+
+<h2>1091</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="card p-4">
+
+<h3>🆘 Emergency Safety Tips</h3>
+
+<ul>
+
+<li>Share your live location with trusted contacts</li>
+
+<li>Avoid isolated places at night</li>
+
+<li>Call emergency services immediately if required</li>
+
+<li>Stay in crowded and well-lit areas</li>
+
+</ul>
+
+</div>
+
+<br>
+
+<div style="text-align:center;">
+
+<a href="/sos/" class="btn btn-danger btn-lg">
+
+🚨 ACTIVATE SOS ALERT
+
+</a>
+
+</div>
+
+</div>
+
+{% endblock %}

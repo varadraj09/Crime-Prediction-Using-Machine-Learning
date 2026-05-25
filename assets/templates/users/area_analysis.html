@@ -1,0 +1,255 @@
+{% extends 'users/userbase.html' %}
+{% block contents %}
+<div style="
+display:flex;
+justify-content:flex-end;
+margin-bottom:15px;
+">
+
+<a href="/UserHome/"
+class="back-custom">
+
+⬅ Dashboard
+
+</a>
+
+</div>
+<div class="container mt-5">
+
+<div class="card p-5">
+
+<h2>Area Safety Analysis</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input
+type="text"
+name="area"
+class="form-control mt-3"
+placeholder="Enter Area"
+required>
+
+<button
+class="btn btn-primary mt-4">
+
+Analyze Area
+
+</button>
+
+</form>
+
+{% if risk_score %}
+
+<hr>
+
+
+
+<div class="row mt-4">
+
+<div class="col-md-4">
+
+<div class="card bg-primary text-white p-4">
+
+<h4>Area</h4>
+
+<h2>{{area}}</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card bg-warning p-4">
+
+<h4>Risk Score</h4>
+
+<h2>{{risk_score}}%</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+{% if risk_level == "LOW" %}
+
+<div class="card bg-success text-white p-4">
+
+{% elif risk_level == "MEDIUM" %}
+
+<div class="card bg-warning p-4">
+
+{% else %}
+
+<div class="card bg-danger text-white p-4">
+
+{% endif %}
+
+<h4>Risk Level</h4>
+
+<h2>{{risk_level}}</h2>
+
+</div>
+
+</div>
+
+</div>
+
+
+<br>
+
+<div class="card p-4">
+
+<h4>Predicted Crime</h4>
+
+<h2>{{predicted_crime}}</h2>
+
+</div>
+
+
+<br>
+
+<div class="card p-4">
+
+<h4>Coordinates</h4>
+
+<p>
+
+Latitude : {{latitude}}
+
+<br>
+
+Longitude : {{longitude}}
+
+</p>
+
+</div>
+
+
+<br>
+
+<div class="card p-4">
+
+<h4>Time Intelligence</h4>
+
+<p>
+
+Safest Time :
+<b>{{safe_time}}</b>
+
+<br><br>
+
+Danger Time :
+<b>{{danger_time}}</b>
+
+</p>
+
+</div>
+
+
+<br>
+
+{% if risk_level == "HIGH" %}
+
+<div class="alert alert-danger">
+
+🚨 HIGH RISK AREA
+Avoid travelling at night.
+
+</div>
+
+{% elif risk_level == "MEDIUM" %}
+
+<div class="alert alert-warning">
+
+⚠ Stay alert in crowded places.
+
+</div>
+
+{% else %}
+
+<div class="alert alert-success">
+
+✅ Area appears comparatively safe.
+
+</div>
+
+{% endif %}
+
+<div class="alert alert-info">
+
+{{recommendation}}
+
+</div>
+
+
+<br>
+
+<div class="card p-4">
+
+<h4>24 Hour Intelligence</h4>
+
+{% for t,r in time_analysis %}
+
+<p>
+
+<b>{{t}}</b> :
+
+{{r}}
+
+</p>
+
+{% endfor %}
+
+</div>
+
+
+<br>
+
+<div class="card p-4">
+
+<h4>Nearby Police Stations</h4>
+
+{% for station,distance in nearby_police %}
+
+<p>
+
+🚓 {{station}}
+
+({{distance}} KM)
+
+</p>
+
+{% empty %}
+
+<p>
+
+No nearby police stations found
+
+</p>
+
+{% endfor %}
+
+</div>
+
+
+<br>
+
+<div class="card p-4">
+
+<h3>Interactive Map</h3>
+
+{{map|safe}}
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endblock %}

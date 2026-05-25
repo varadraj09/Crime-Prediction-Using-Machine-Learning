@@ -1,0 +1,105 @@
+{% extends 'users/userbase.html' %}
+
+{% block contents %}
+
+<div style="
+display:flex;
+justify-content:flex-end;
+margin-bottom:15px;
+">
+
+<a href="/UserHome/"
+class="back-custom">
+
+⬅ Dashboard
+
+</a>
+
+</div>
+
+<div class="container mt-5">
+
+<h1 class="text-center text-white">
+
+📊 Crime Insights Dashboard
+
+</h1>
+
+<br>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card bg-primary text-white p-4">
+
+<h4>Total Crimes</h4>
+
+<h2>{{total}}</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card bg-danger text-white p-4">
+
+<h4>High Risk</h4>
+
+<h2>{{high}}</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card bg-success text-white p-4">
+
+<h4>Safe Areas</h4>
+
+<h2>{{safe}}</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="card p-4">
+
+<h3>🏙 Top Crime Cities</h3>
+
+<img src="{{city}}"
+class="img-fluid">
+
+</div>
+
+<br>
+
+<div class="card p-4">
+
+<h3>🥧 Crime Domain Distribution</h3>
+
+<img src="{{domain}}"
+class="img-fluid">
+
+</div>
+
+<br>
+
+<div class="card p-4">
+
+<h3>👥 Victim Gender Analysis</h3>
+
+<img src="{{gender}}"
+class="img-fluid">
+
+</div>
+
+</div>
+
+{% endblock %}

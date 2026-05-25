@@ -1,0 +1,134 @@
+{% extends 'users/userbase.html' %}
+
+{% block contents %}
+<div style="
+display:flex;
+justify-content:flex-end;
+margin-bottom:15px;
+">
+
+<a href="/UserHome/"
+class="back-custom">
+
+⬅ Dashboard
+
+</a>
+
+</div>
+
+<div style="padding:40px;">
+
+    <h1 style="color:white; text-align:center;">
+        Crime Training Results
+    </h1>
+    <div class="row mt-5">
+
+    <div class="col-md-3">
+
+        <div class="card bg-primary text-white p-4">
+
+            <h3>Accuracy</h3>
+
+            <h2>
+
+                {{Accuracy}}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-success text-white p-4">
+
+            <h3>Precision</h3>
+
+            <h2>
+
+                {{Precision}}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-warning text-dark p-4">
+
+            <h3>Recall</h3>
+
+            <h2>
+
+                {{Recall}}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-danger text-white p-4">
+
+            <h3>F1 Score</h3>
+
+            <h2>
+
+                {{F1_Score}}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+    {% if chart %}
+<div style="text-align:center; margin-top:40px;">
+
+<h2 style="color:white;">
+Crime Analysis Chart
+</h2>
+
+<img src="{{chart}}"
+style="
+width:90%;
+background:white;
+padding:15px;
+border-radius:20px;
+margin-top:20px;
+">
+
+</div>
+{% endif %}
+
+   {% if heatmap %}
+<div style="text-align:center; margin-top:50px;">
+
+<h2 style="color:white;">
+Heatmap Analysis
+</h2>
+
+<img src="{{heatmap}}"
+style="
+width:90%;
+background:white;
+padding:15px;
+border-radius:20px;
+margin-top:20px;
+">
+
+</div>
+{% endif %}
+
+</div>
+
+{% endblock %}

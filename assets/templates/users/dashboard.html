@@ -1,0 +1,102 @@
+{% extends 'users/userbase.html' %}
+
+{% block contents %}
+
+<div style="
+display:flex;
+justify-content:flex-end;
+margin-bottom:15px;
+">
+
+<a href="/UserHome/"
+class="back-custom">
+
+⬅ Dashboard
+
+</a>
+
+</div>
+
+<div class="container mt-5">
+
+<h1 class="text-center text-white mb-5">
+
+🏠 Crime AI Dashboard
+
+</h1>
+
+<div class="row">
+
+<div class="col-md-3">
+
+<div class="card bg-primary text-white p-4">
+
+<h4>Total Crimes</h4>
+
+<h2>{{total}}</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card bg-danger text-white p-4">
+
+<h4>High Risk Areas</h4>
+
+<h2>{{high}}</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card bg-success text-white p-4">
+
+<h4>Safe Areas</h4>
+
+<h2>{{safe}}</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card bg-warning p-4">
+
+<h4>Average Risk</h4>
+
+<h2>{{avg}}%</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="card p-4">
+
+<h3>🚨 Safety Alerts</h3>
+
+<ul>
+
+<li>Avoid isolated places at night</li>
+
+<li>Travel during daytime if possible</li>
+
+<li>Stay alert in crowded areas</li>
+
+<li>Share live location while travelling</li>
+
+</ul>
+
+</div>
+
+</div>
+
+{% endblock %}

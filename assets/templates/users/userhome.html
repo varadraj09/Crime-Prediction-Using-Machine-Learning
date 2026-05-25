@@ -1,0 +1,243 @@
+{% extends 'users/userbase.html' %}
+{% block contents %}
+{% load static %}
+
+<style>
+    .hero{
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#06b6d4
+);
+
+padding:55px;
+
+border-radius:30px;
+
+text-align:center;
+
+box-shadow:
+0 10px 35px rgba(37,99,235,.5);
+
+margin-bottom:50px;
+
+}
+
+body{
+    background:#0f172a;
+}
+
+.main-box{
+    padding:40px;
+    color:white;
+}
+
+.top-box{
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    padding:40px;
+    border-radius:20px;
+    margin-bottom:40px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+.top-box h1{
+    font-size:45px;
+    font-weight:bold;
+}
+
+.top-box p{
+    margin-top:15px;
+    font-size:18px;
+}
+
+.card-container{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:40px;
+}
+.card-box{
+
+background:rgba(30,41,59,0.9);
+
+border-radius:25px;
+
+padding:35px;
+
+width:330px;
+
+text-align:center;
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.4);
+
+transition:all .4s ease;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.card-box:hover{
+
+transform:
+translateY(-10px)
+scale(1.03);
+
+box-shadow:
+0 15px 35px rgba(37,99,235,.5);
+
+}
+
+.card-box h3{
+
+font-size:26px;
+
+color:#38bdf8;
+
+margin-bottom:15px;
+
+font-weight:700;
+
+}
+
+.card-box p{
+
+color:#cbd5e1;
+
+font-size:16px;
+
+margin-bottom:25px;
+
+}
+
+.card-box a{
+
+display:inline-block;
+
+background:linear-gradient(
+90deg,
+#2563eb,
+#06b6d4
+);
+
+padding:12px 35px;
+
+border-radius:14px;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.card-box a:hover{
+
+transform:scale(1.08);
+
+color:white;
+
+}
+</style>
+<div class="hero">
+
+<h1>
+Crime Prediction Dashboard
+</h1>
+
+<p>
+Analyze crime records and predict criminal activities using AI & Machine Learning
+</p>
+
+</div>
+
+    <div class="card-container">
+
+        <!-- Dataset -->
+
+        <div class="card-box">
+
+            <h3>📁 Crime Dataset</h3>
+
+            <p>
+                View uploaded crime datasets and analytics.
+            </p>
+
+            <a href="/viewData">
+                Open
+            </a>
+
+        </div>
+        <div class="card-box">
+
+             <h3>📍 Area Analysis</h3>
+            <p>Analyze crime risk by area.</p>
+            <a href="/area_analysis/">Open</a>
+            
+        </div>
+
+        <!-- Prediction -->
+
+        <div class="card-box">
+
+            <h3>📊 Crime Prediction</h3>
+
+            <p>
+                Predict future crime activities using Machine Learning.
+            </p>
+
+            <a href="/crimeprediction/">
+                Open
+            </a>
+
+        </div>
+
+
+        <div class="card-box">
+
+            <h3>📊 Insights</h3>
+            <p>View crime charts and statistics.</p>
+            <a href="/insights/">Open</a>
+        
+        </div>
+
+
+        <!-- Add Crime -->
+
+        <div class="card-box">
+           
+            <h3>🛣 Route Safety</h3>
+            <p>Find safer travel routes.</p>
+            <a href="/route_safety/">Open</a>
+        
+        </div>
+
+
+        <div class="card-box">
+
+            <h3>➕ Add Crime</h3>
+
+            <p>
+                Add new crime reports into the system database.
+            </p>
+
+            <a href="/AddCrime/">
+                Open
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

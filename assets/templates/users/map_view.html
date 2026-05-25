@@ -1,0 +1,57 @@
+{% extends 'users/userbase.html' %}
+
+{% block contents %}
+<div style="
+display:flex;
+justify-content:flex-end;
+margin-bottom:15px;
+">
+
+<a href="/UserHome/"
+class="back-custom">
+
+⬅ Dashboard
+
+</a>
+
+</div>
+
+<div class="container mt-5">
+
+<div class="card p-5">
+
+<h2>🗺 Live Crime Map</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input
+type="text"
+name="area"
+class="form-control mt-3"
+placeholder="Enter Area"
+required>
+
+<button
+class="btn btn-primary mt-4">
+
+Show Map
+
+</button>
+
+</form>
+
+{% if map %}
+
+<hr>
+
+{{map|safe}}
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endblock %}
