@@ -16,11 +16,26 @@ city_path = os.path.join(BASE_DIR, 'city_encoder.pkl')
 crime_path = os.path.join(BASE_DIR, 'crime_encoder.pkl')
 gender_path = os.path.join(BASE_DIR, 'gender_encoder.pkl')
 
-# ३. 'pickle' ऐवजी 'joblib' वापरून फाईल्स लोड करा (open आणि 'rb' लिहिण्याची गरज नाही)
-model = joblib.load(model_path)
-city_encoder = joblib.load(city_path)
-crime_encoder = joblib.load(crime_path)
-gender_encoder = joblib.load(gender_path)
+# Lazy loading (RAM वाचवण्यासाठी)
+model = None
+city_encoder = None
+crime_encoder = None
+gender_encoder = None
+
+def load_files():
+    global model, city_encoder, crime_encoder, gender_encoder
+
+    if model is None:
+        model = joblib.load(model_path)
+
+    if city_encoder is None:
+        city_encoder = joblib.load(city_path)
+
+    if crime_encoder is None:
+        crime_encoder = joblib.load(crime_path)
+
+    if gender_encoder is None:
+        gender_encoder = joblib.load(gender_path)
 from django.http import HttpResponse
 from django.contrib import messages
 from .forms import UserRegistrationForm
@@ -281,6 +296,8 @@ def dashboard(request):
     )
 
 def area_analysis(request):
+
+    load_files()
 
     if request.method == "POST":
 
