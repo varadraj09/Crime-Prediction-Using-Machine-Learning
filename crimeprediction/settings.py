@@ -29,10 +29,16 @@ SECRET_KEY = 'django-insecure-kobr4rjby(!fc%zu_jw8zdv5$t$5z24elej2249)q@puu+zjso
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# ALLOWED_HOSTS = [
+#     "crime-prediction-using-machine-learning-1.onrender.com",
+#     "localhost",
+#     "127.0.0.1"
+# ]
 ALLOWED_HOSTS = [
-    "crime-prediction-using-machine-learning-1.onrender.com",
+    "127.0.0.1",
     "localhost",
-    "127.0.0.1"
+    "10.0.2.2",
+    "*"
 ]
 
 # Application definition
